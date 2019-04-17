@@ -30,19 +30,24 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="title col-md-7 col-sm-8 col-xs-12">
+                    <div class="title col-md-9 col-sm-8 col-xs-12">
                         <h3>El 12 de mayo votá a Juntxs por Anisacate</h3>
                         <p>Gestión Creativa, Integral y Participativa. </p>
                     </div>
-                    <div class="donate col-md-5 col-sm-4 col-xs-12">
+                    {% comment %}
+
+
+                    <div class="donate col-md-3 col-sm-4 col-xs-12">
                         <div class="button_donate">
                             <a href="#">Cómo votar</a>
                         </div>
                     </div>
+                    {% endcomment %}
 
                 </div>
             </div>
         </div>
+        {% comment %}
         <div class="help">
             <div class="container">
                 <div class="row">
@@ -50,54 +55,57 @@
                         <span>Queremos una nueva política</span>
                         <h3>Para ponerle fin al <em>feudo</em></h3>
                     </div>
-                    <div class="left col-md-9">
-                <div class="list-item">
-                    <div class="item col-md-6 col-sm-6 col-xs-12">
-                        <div class="icon col-md-2">
-                            <i class="material-icons">collections_bookmark</i>
+
+                <div class="left col-md-9">
+                    <div class="list-item">
+                        <div class="item col-md-6 col-sm-6 col-xs-12">
+                            <div class="icon col-md-2">
+                                <i class="material-icons">collections_bookmark</i>
+                            </div>
+                            <div class="text_show col-md-10">
+                                <h3>Education</h3>
+                                <p>Autoristarismo y </p>
+                            </div>
                         </div>
-                        <div class="text_show col-md-10">
-                            <h3>Education</h3>
-                            <p>Autoristarismo y </p>
+                        <div class="item col-md-6 col-sm-6 col-xs-12">
+                            <div class="icon col-md-2">
+                                <i class="material-icons">local_cafe</i>
+                            </div>
+                            <div class="text_show col-md-10">
+                                <h3>Help $ Support</h3>
+                                <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="item col-md-6 col-sm-6 col-xs-12">
-                        <div class="icon col-md-2">
-                            <i class="material-icons">local_cafe</i>
+                    <div class="list-item">
+                        <div class="item col-md-6 col-sm-6 col-xs-12">
+                            <div class="icon col-md-2">
+                                <i class="material-icons">favorite_border</i>
+                            </div>
+                            <div class="text_show col-md-10">
+                                <h3>Volunteering</h3>
+                                <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
+                            </div>
                         </div>
-                        <div class="text_show col-md-10">
-                            <h3>Help $ Support</h3>
-                            <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
+                        <div class="item col-md-6 col-sm-6 col-xs-12">
+                            <div class="icon col-md-2">
+                                <i class="material-icons">person_add</i>
+                            </div>
+                            <div class="text_show col-md-10">
+                                <h3>Adoption</h3>
+                                <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="list-item">
-                    <div class="item col-md-6 col-sm-6 col-xs-12">
-                        <div class="icon col-md-2">
-                            <i class="material-icons">favorite_border</i>
-                        </div>
-                        <div class="text_show col-md-10">
-                            <h3>Volunteering</h3>
-                            <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
-                        </div>
-                    </div>
-                    <div class="item col-md-6 col-sm-6 col-xs-12">
-                        <div class="icon col-md-2">
-                            <i class="material-icons">person_add</i>
-                        </div>
-                        <div class="text_show col-md-10">
-                            <h3>Adoption</h3>
-                            <p>Praesent vestibulum aenean nommy eros hendrerit mauris. Cum sociis natoqueing patibuset mgnis parturient.</p>
-                        </div>
-                    </div>
+                <div class="right col-md-3">
+                        <img src="{% static 'images/img_static_01.jpg' %}" alt="">
                 </div>
             </div>
-                    <div class="right col-md-3">
-                        <img src="images/img_static_01.jpg" alt="">
-                    </div>
-                </div>
             </div>
         </div>
+        {% endcomment %}
+        {% comment %}
         <div class="campaigns">
             <div class="container">
                 <div class="row">
@@ -271,17 +279,25 @@
                 </div>
             </div>
         </div>
+        {% endcomment %}
         <div class="recent">
             <div class="container">
                 <div class="row">
                     <div class="title">
-                        <h3>Recent <b>New</b> & <b>Video</b></h3>
+                        <h3>Una <b>nueva política</b> para <b>Anisacate</b></h3>
                     </div>
-                    <div class="left col-md-6 col-sm-12 col-xs-12">
-                        <img src="images/stories_img_01.jpg" alt="">
-                        <a href="#">STORY</a>
-                        <p>A girl's father shows charity by helping another girl feel included at a birthday party.</p>
+                    <div class="left col-md-12 col-sm-12 col-xs-12">
+
+
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/2LYAJPGDCbE?rel=0" allowfullscreen></iframe>
+                        </div>
+
+
                     </div>
+                    {% comment %}
+
+
                     <div class="right col-md-6 col-sm-12 col-xs-12">
                         <div class="item col-md-12 col-sm-4 col-xs-12">
                             <div class="row">
@@ -317,6 +333,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endcomment %}
                 </div>
             </div>
         </div>
@@ -328,7 +345,7 @@
                         <p>Juntxs por Anisacate es un colectivo diverso. Nuestras ideas y propuestas son el eje en la construcción de este nuevo espacio. La participación ciudadana por sobre las individualidades.</p>
                         <div class="donate">
                             <div class="button_donate">
-                                <a href="pages/campaigns/campaigns-detail.html">¡Sumate!</a>
+                                <a href="/contacto">¡Sumate!</a>
                             </div>
                         </div>
                     </div>

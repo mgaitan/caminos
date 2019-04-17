@@ -33,8 +33,13 @@
             </div>
             {% endif %}
             </div>
+
+
+
             <div class="post-body">
+            {% block post-body %}
                 {{ page.body|richtext }}
+            {% endblock post-body %}
             </div>
         </div>
     </div>
