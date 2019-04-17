@@ -1,0 +1,21 @@
+{% extends "blog/blog_page.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}page_contact pages_item{% endblock %}
+
+{% block main-content %}
+
+
+
+<div class="message_contact">
+    <div class="container">
+        <div class="message_c">
+            <div class="contact-message-feedback-form">
+                {{ page.thank_you_text|richtext }}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock main-content %}

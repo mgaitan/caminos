@@ -1,4 +1,6 @@
 *.sqlite3
+media/*
+static/*
 *.csv
 *.log
 __pycache__
