@@ -1,0 +1,109 @@
+{% extends "blog/blog_index_page.html" %}
+{% load staticfiles %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}page_blog_detail page_list_posts pages_item page_detail{% endblock body_class %}
+
+{% block bg_full_cp %}{% endblock %}
+{% block main-content %}
+<div class="main-content-inner">
+<div class="cmp_detail">
+    <div class="post-block">
+
+    {% comment %}
+
+
+        <div class="post-image">
+
+            {% image page.image fill-780x500-c50 as image %}
+            <img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" class="" />
+
+        </div>
+{% endcomment %}
+        <div class="post-content">
+            <div class="post-title">
+                <a href=""><span>{{ page.title }}</span></a>
+            </div>
+            <div class="post-meta">
+            {% if page.date_published %}
+            <div class="post-meta">
+                <span>
+                    <span>{{ page.date_published }} </span>
+                </span>
+            </div>
+            {% endif %}
+            </div>
+            <div class="post-body">
+                {{ page.body|richtext }}
+            </div>
+        </div>
+    </div>
+    <div class="comment">
+        <div class="list-comment">
+            {% comment %}
+
+
+            <h2>Comment (3)</h2>
+            <div class="single_comment">
+                <div class="comment_item">
+                    <div class="content_cmt">
+                        <div class="cmt_profile">
+                            <div class="bl_icon">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="cmt-content">
+                            <h3 class="cmt_title">Tom Cleverly</h3>
+                            <div class="cmt_time">2 days ago</div>
+                            <div class="text">
+                                <p>Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves</p>
+                                <a class="btn_rep">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment_item sub_item">
+                        <div class="content_cmt">
+                            <div class="cmt_profile">
+                                <div class="bl_icon">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                            <div class="cmt-content">
+                                <h3 class="cmt_title">Tom Cleverly</h3>
+                                <div class="cmt_time">2 days ago</div>
+                                <div class="text">
+                                    <p>Take up one idea. Make that one idea your life - think of it, dream of it, live on that idea. Let the brain, muscles, nerves</p>
+                                    <a class="btn_rep">Reply</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form class="form_comment">
+                <h3 class="title_cmt">
+                    <span>Leave a Comments</span>
+                </h3>
+                <div class="f_cmt">
+                    <div class="row">
+                        <div class="name col-md-6 col-sm-12">
+                            <input placeholder="Your name" type="text" name="name">
+                        </div>
+                        <div class="subject col-md-6 col-sm-12">
+                            <input placeholder="Email" type="text" name="mail">
+                        </div>
+                    </div>
+                    <div class="cmt_text">
+                        <textarea placeholder="Your Message"></textarea>
+                    </div>
+                </div>
+                <div class="btn_post">
+                    <a href="">Post Comment</a>
+                </div>
+            </form>
+            {% endcomment %}
+        </div>
+    </div>
+</div>
+</div>
+{% endblock main-content %}

@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}page_list_posts pages_item {% endblock body_class %}
+
+{% block page_content %}
+
+{% block bg_full_cp %}
+{% if page.image %}
+<div class="bg_full_cp">
+    <div class="bg_full" style="background-image: url({{ page.image.file.url }}); background-repeat: no-repeat; background-position: center center;">
+        <div class="container">
+            <div class="ct">
+                <h2 class="page_title">
+                    <span>{{ page.title }}</span>
+                </h2>
+                {% comment %}
+
+
+                <div class="breadcrumb-links">
+                    <a href="../../index.html">Home</a>
+                    <span> / List posts</span>
+                </div>
+                {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock bg_full_cp %}
+<div class="list_posts">
+    <div class="container">
+        <div class="row">
+            <div class="main-content col-xs-12 col-md-8">
+                {% block main-content  %}
+
+                 {% if posts %}
+                    {% for blog in posts %}
+
+
+                    <div class="item">
+                        <div class="post-block">
+                            <div class="post-image">
+
+                                {% image blog.image fill-400x250-c50 as image %}
+                                <a href=""><img src="{{ image.url }}" width="{{ image.width }}" height="{{ image.height }}" alt="{{ image.alt }}" class="" /></a>
+
+                            </div>
+                            <div class="post-content">
+                                <div class="post-title">
+                                    <a href="{% pageurl blog %}"><span>{{ blog.title }}</span></a>
+                                </div>
+                                {% if blog.date_published %}
+                                <div class="post-meta">
+                                    <span>
+                                        <span>{{ blog.date_published }} </span>
+                                    </span>
+                                </div>
+                                {% endif %}
+                                <div class="post-body">
+                                    <p>{{ blog.introduction|truncatewords:15 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+
+
+            {% comment %}
+
+
+                <nav class="pager">
+                    <ul class="pager-item">
+                        <li class="selected"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">Next</a></li>
+                        <li><a href="">Last</a></li>
+                    </ul>
+                </nav>
+            {% endcomment %}
+            {% endblock main-content %}
+
+            </div>
+            <div class="sidebar-right sidebar col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar-inner">
+                    <div>
+                        {% comment %}
+
+
+                        <div class="categories">
+                            <h2 class="block-title">
+                                <span>Categories</span>
+                            </h2>
+                            <div class="content block-content">
+                                <ul>
+                                    <li>
+                                        <a href="">Fashion</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="recent_posts">
+                            <h2 class="block-title">
+                                <span>Recent Posts</span>
+                            </h2>
+                            <div class="content block-content">
+                                <ul>
+                                    <li>
+                                        <div class="field-content">
+                                            <div class="post-block">
+                                                <div class="post-image">
+                                                    <a href=""><img src="../../images/post-14.jpg" alt=""></a>
+                                                </div>
+                                                <div class="post-content">
+                                                    <div class="post-title">
+                                                        <a href=""><span>Server-Side Rendering</span></a>
+                                                    </div>
+                                                    <div class="post-meta">
+                                                        <span>29 Nov 15 </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endcomment %}
+                        {% if page.get_child_tags %}
+                        <div class="tags">
+                            <h2 class="block-title">
+                                <span>Tags</span>
+                            </h2>
+                            <ul>
+                            {% for tag in page.get_child_tags %}
+                                <li>
+                                    <a href="{{ tag.url }}" class="btn btn-sm">{{ tag }}</a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock page_content %}
+
+
+{% block page_content_ %}
+
+        {% if tag %}
+            <div class="row">
+                <div class="col-md-12">
+                    <p>Viewing all blog posts by <span class="outline">{{ tag }}</span></p>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if page.get_child_tags %}
+            <ul class="blog-tags tags list-inline">
+                {% for tag in page.get_child_tags %}
+                    <li><a href="{{ tag.url }}">{{ tag }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+
+<div class="bg_full_cp">
+    <div class="bg_full" style="background-image: url('{{ page.image.file.url }}'); background-repeat: no-repeat; background-position: center center;">
+        <div class="container">
+            <div class="ct">
+                <h2 class="page_title">
+                {% if tag %}
+                    <p>Artículos con etiqueta <span class="outline">{{ tag }}</span>
+                {% else %}
+                    <p>Artículos</span>
+                {% endif %}
+                </h2>
+                <div class="breadcrumb-links">
+                    <a href="/">Inicio</a>
+                    <span> / Noticias</span>
+                    {% if tag %}
+                        <span> / {{ tag }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="list_posts">
+    <div class="container">
+        <div class="row">
+            <div class="main-content col-xs-12 col-md-8">
+
+
+                {% comment %}
+
+
+                <nav class="pager">
+                    <ul class="pager-item">
+                        <li class="selected"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">Next</a></li>
+                        <li><a href="">Last</a></li>
+                    </ul>
+                </nav>
+                {% endcomment %}
+            </div>
+            <div class="sidebar-right sidebar col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="sidebar-inner">
+                    <div>
+                        <div class="categories">
+                        {% if page.get_child_tags %}
+                            <h2 class="block-title">
+                                <span>Tags</span>
+                            </h2>
+
+                            <div class="content block-content">
+                                <ul>
+                                {% for tag in page.get_child_tags %}
+                                    <li><a href="{{ tag.url }}">{{ tag }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        {% comment %}
+
+                        <div class="recent_posts">
+                            <h2 class="block-title">
+                                <span>Recent Posts</span>
+                            </h2>
+                            <div class="content block-content">
+                                <ul>
+                                    <li>
+                                        <div class="field-content">
+                                            <div class="post-block">
+                                                <div class="post-image">
+                                                    <a href=""><img src="../../images/post-14.jpg" alt=""></a>
+                                                </div>
+                                                <div class="post-content">
+                                                    <div class="post-title">
+                                                        <a href=""><span>Server-Side Rendering</span></a>
+                                                    </div>
+                                                    <div class="post-meta">
+                                                        <span>29 Nov 15 </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock page_content_ %}
